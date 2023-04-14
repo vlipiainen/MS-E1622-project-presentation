@@ -1,0 +1,194 @@
+%introduction-example
+
+\section{Introduction}
+
+\begin{frame}{Topic}
+An overview of (part of) the article 
+\[ \textbf{``Tensor decomposition and homotopy continuation''} \]
+by Alessandra Bernardi, Noah S. Daleo, Jonathan D. Hauenstein, and Bernard Mourrain.
+\end{frame}
+
+\begin{frame}{Tensors and tensor rank}
+  \begin{bee}[Tensor]
+    A tensor can be defined as 1) a multidimensional array, 2) a multilinear map.
+  \end{bee}
+
+  \begin{bee}[Tensor rank]
+    The rank of a tensor $T$ is the minimum number $r$ s.t. it can be written as a sum of $r$ simple tensors.
+  \end{bee}
+
+  \begin{bee}[Tensor decomposition]
+     The simple tensors $T$ can be written as a sum of.
+  \end{bee}
+\end{frame}
+
+\begin{frame}{The goal of the paper}
+  \begin{bee}[Problem]
+    Finding the rank \& decomposition of a tensor
+  \end{bee}  
+  \begin{bee}[Solution approach]
+    \begin{enumerate}
+      \item Generalise to a problem of testing membership in a join variety
+      \item Calculate a pseudowitness set for that join variety
+      \item Test membership in that join variety
+    \end{enumerate}
+  \end{bee}
+\end{frame}
+
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Background}
+\subsection{Rank and join variety}
+\begin{frame}{Rank of points in a variety}
+  Let $X$ be a an irreducible and nondegenerate projective variety $X \subset \PP^n$ defined over $\CC$.
+
+  \begin{bee}[Definition]
+    The \emph{$X$-rank} of a point $P \in \CC^{n+1}$ is the minimum $r$ such that
+    \[P = \sum_{i=1}^r x_i, \quad x_i \in \mathcal{C}(X),\]    
+    where $\mathcal{C}(X)$ is the affine cone of $X$.
+  \end{bee}
+\end{frame}
+
+\begin{frame}{Join variety}
+  Let $\langle [x_1], \ldots, [x_r] \rangle$ denote the linear space spanned by $x_1, \ldots, x_r$.
+  \begin{bee}[Definition]
+    The \emph{constructible join variety} of irreducible and nondegenerate varieties $X_1, \ldots X_k$ is
+      \[ J_0(X_1, \ldots X_k) = \bigcup_{[x_1] \in X_1 \ldots [x_k] \in X_k } \langle [x_1], \ldots, [x_r] \rangle \]
+    and the \emph{join variety} is $J(X_1, \ldots, X_k) = \overline{J_0(X_1, \ldots, X_k)}$
+  \end{bee}
+
+  Setting $(\forall i) X_i = X$ we get the variety of all elements with rank at most k
+\end{frame}
+
+\subsection{Numerical algebraic geometry}
+
+\begin{frame}{Witness sets}
+  \begin{bee}[Informal definition]
+    A witness set for a variety $X$ is a triple $\{f, \mathcal{L}, W\}$
+    \begin{itemize}
+      \item $f$ is is a set of polynomials defining $X$.*
+      \item $\mathcal{L}$ is a general linear space that intersects with $X$.*
+      \item $W = \mathcal{L} \cap X$
+    \end{itemize}
+  \end{bee}
+\end{frame}
+
+\begin{frame}{Homotopy continuation}
+  \begin{bee}[Informal definition]
+    Deforming a solution for one polynomial system is deformed to a solution for another polynomial system.
+  \end{bee}
+\end{frame}
+
+
+
+\begin{frame}{Testing membership with witness sets}
+  Given a point $p \in \CC^{N}$ and a variety $V \subset \CC^{N}$
+  \begin{enumerate}
+    \item Find a general linear space $\mathcal{L}_p \ni p$.*
+    \item Track paths $\mathcal{L} \cap V \to \mathcal{L}_p \cap V$ along the homotopy
+      \[V \cap (t \cdot \mathcal{L} + (1-t) \cdot \mathcal{L}_p)\]
+    \item $p$ belongs to $V$ iff it is an endpoint for some element of $W$
+  \end{enumerate}
+\end{frame}
+
+
+
+\section{The results}
+\begin{frame}{Determining rank}
+   \begin{bee}[Definition: Abstract join variety]
+     \[
+       \mathcal{J} = \bigl\{ ([P], x_1, \cdots, x_k) \mid x_i \in \mathcal{C}(X_i), P = \sum_{i=1}^k x_i \bigr\}
+     \]
+   \end{bee}
+   If a given element has rank $\leq k$ the tuple $([P], \text{decompostion of P}) \in \mathcal{J}$ for $X_i = X$.
+   
+   For any candidate element, we can test membership in $J$ using a \emph{pseudowitness} set (which I don't have space to explain well) for $J$ and doing homotopy continuation along $\mathcal{J}$.
+\end{frame}
+
+\begin{frame}{Other results}
+  \begin{itemize}
+    \item Calculating a real decompostion
+    \item Decompositions of generic elements using Newton homotopises
+    \item Calculating upper bounds for rank and border rank using local numerical techniques and Newton homotopies.
+  \end{itemize}
+\end{frame}
+
+
+
+\section*{}
+\begin{frame}{Thank you}
+  Thank you for your attention
+\end{frame}
+
+% \section{An example}
+% \begin{frame}{Setup}
+%   Lorem ipsum
+% \end{frame}
+% 
+% \begin{frame}{Solution}
+%   Lorem ipsum
+% \end{frame}
+
+
+% %real example
+% \begin{frame}[plain]
+%     \begin{bee}[Definición]
+%         Sea $D$ un dominio de integridad. Una \textbf{\textit{función (o norma) euclídea}} sobre $D$ es cualquier función $v:D\backslash\{0\}\rightarrow\N$ tal que:
+%             \begin{enumerate}[1)]
+%                 \item Para todo $a,b\in D$, con $a\neq 0$, existen $q,r\in D$ tal que $a=bq+r$, donde $r=0$ o $v(r)<v(b)$.
+%                 \item Para todo $a,b\in D$ no nulos, $v(a)\leq v(ab)$.
+%             \end{enumerate}
+%         Luego, un dominio de integridad $D$ es un \textbf{\textit{dominio euclídeo}} si existe una función euclídea en $D$.
+%     \end{bee} 
+% \end{frame}
+% 
+% %other examples
+% \begin{frame}{Title}
+%     \begin{bee}[]
+%         Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%         Etiam lobortis facilisis sem. Nullam nec mi et neque
+%         pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec
+%         ullamcorper, felis non sodales commodo, lectus velit ultrices
+%         augue, a dignissim nibh lectus placerat pede. Vivamus nunc
+%         nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor.
+%     \end{bee}
+% \end{frame}
+% 
+% \begin{frame}[plain]
+%     \begin{columns}
+%         \begin{column}{5cm}
+%             \begin{bee}[]
+%                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%                 Etiam lobortis facilisis sem. Nullam nec mi et neque
+%                 pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec
+%                 ullamcorper, felis non sodales commodo, lectus velit ultrices
+%                 augue, a dignissim nibh lectus placerat pede.
+%             \end{bee}
+%         \end{column}
+%         \begin{column}{5cm}
+%             \begin{bee}[note 1]
+%                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%                 Etiam lobortis facilisis sem. 
+%             \end{bee}
+%             \begin{bee}[note 2]
+%                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%                 Etiam lobortis facilisis sem. 
+%             \end{bee}
+%         \end{column}
+%     \end{columns}
+% \end{frame}
+% 
+% \begin{frame}{Title}
+%     \begin{bee}[list]
+%         \begin{enumerate}[$\bullet$]
+%             \item element 1
+%             \item element 2
+%             \item element 3
+%         \end{enumerate}
+%     \end{bee}
+%     \centering
+%     \url{https://github.com/sdesch/minimalist-beamer-latex}
+% \end{frame}
